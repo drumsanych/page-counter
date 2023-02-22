@@ -8,9 +8,9 @@ import tg.alexv100.pagecounter.data.dto.ExceptionDTO;
 
 @ControllerAdvice
 public class ExceptionHandlers {
-    //todo
-//    @ExceptionHandler(RuntimeException.class)
-//    public ResponseEntity<ExceptionDTO> sendExceptionIndo(RuntimeException exception) {
-//        return new ResponseEntity<>(new ExceptionDTO(exception.getMessage()), HttpStatusCode.valueOf(210));
-//    }
+
+    @ExceptionHandler(RuntimeException.class)
+    public ResponseEntity<ExceptionDTO> sendExceptionIndo(RuntimeException exception) {
+        return new ResponseEntity<>(new ExceptionDTO(exception.getMessage()), HttpStatusCode.valueOf(210));
+    }
 }

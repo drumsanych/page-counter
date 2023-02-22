@@ -20,8 +20,10 @@ public class PageCountController {
 
     @PostMapping("/getAll")
     public ResponseEntity<DocumentsAndPagesCountDTO> getDocumentsAndPagesCountDTO(@RequestBody RequestDTO requestObj) {
-        DocumentsAndPagesCountDTO documentsAndPagesCountDTO = pageCountService.searchDocuments(requestObj);
-        return new ResponseEntity<>(documentsAndPagesCountDTO, HttpStatusCode.valueOf(200));
+        if (requestObj.getUrl() == null) throw new RuntimeException("Url field is null");
+        if (requestObj.getFormats() == null || requestObj.getFormats().length == 0) {
+            throw new RuntimeException("Need one file format at least! Add field 'formats' and value as : ['pdf']");
+        }
+        return new ResponseEntity<>(pageCountService.searchDocuments(requestObj), HttpStatusCode.valueOf(200));
     }
-
 }

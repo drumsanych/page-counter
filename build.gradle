@@ -12,7 +12,9 @@ configurations {
     compileOnly {
         extendsFrom annotationProcessor
     }
+
 }
+
 
 repositories {
     mavenCentral()
@@ -20,7 +22,12 @@ repositories {
 
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
+
     implementation 'org.apache.pdfbox:pdfbox:2.0.24'
+    implementation 'org.apache.poi:poi-ooxml:5.2.2'
+    testImplementation 'junit:junit:4.13.1'
+
+
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'

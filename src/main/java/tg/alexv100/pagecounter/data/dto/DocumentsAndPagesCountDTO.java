@@ -7,6 +7,6 @@ import lombok.Data;
 @AllArgsConstructor
 public class DocumentsAndPagesCountDTO {
     private String url;
-    private Integer documentsCount;
-    private Long pagesCount;
+    private Integer documents;
+    private Long pages;
 }

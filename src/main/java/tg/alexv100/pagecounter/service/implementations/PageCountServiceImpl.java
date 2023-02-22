@@ -27,7 +27,6 @@ public class PageCountServiceImpl implements PageCountService {
         String url = requestObj.getUrl();
         ArrayList<File> files = new ArrayList<>();
         long count = 0;
-
         searchFiles(new File(url), files, requestObj.getFormats());
         for (File file : files) {
             for (FileParser fileParser : fileParsers) {
@@ -38,7 +37,7 @@ public class PageCountServiceImpl implements PageCountService {
         return new DocumentsAndPagesCountDTO(url, files.size(), count);
     }
 
-    private static void searchFiles(File rootFile, List<File> filesList, String[] formats) {
+    private void searchFiles(File rootFile, List<File> filesList, String[] formats) {
         if (rootFile.isDirectory()) {
             File[] allFiles = rootFile.listFiles();
             if (allFiles != null) {
@@ -55,7 +54,6 @@ public class PageCountServiceImpl implements PageCountService {
                 }
             }
         } else {
-            log.info("Wrong file path");
             throw new RuntimeException("Wrong file path");
         }
     }
