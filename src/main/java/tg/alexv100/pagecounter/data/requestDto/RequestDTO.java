@@ -1,7 +1,6 @@
-package tg.alexv100.pagecounter.data.RequestEntity;
+package tg.alexv100.pagecounter.data.requestDto;
 
 import lombok.Data;
-import java.util.List;
 
 @Data
 public class RequestDTO {

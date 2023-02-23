@@ -11,8 +11,10 @@ import java.io.IOException;
 @Component
 @Qualifier("fileparser")
 public class PdfFileParser implements FileParser {
+
     @Override
     public long getPagesCount(File file) {
+        if (file == null || !file.isFile()) throw new RuntimeException("Wrong file path");
         int pagesCount = 0;
         if (file.getName().endsWith(".pdf")) {
             try (PDDocument pdDocument = PDDocument.load(file)) {
