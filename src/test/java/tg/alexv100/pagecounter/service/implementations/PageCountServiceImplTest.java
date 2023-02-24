@@ -45,7 +45,6 @@ class PageCountServiceImplTest {
         FileParser fileParser = Mockito.mock(FileParser.class);
         when(iterator.next()).thenReturn(fileParser);
         when(fileParser.getPagesCount(file)).thenReturn(50L);
-        when(fileParserList.iterator()).thenReturn(iterator);
         List<File> files = new ArrayList<>();
         files.add(file);
         when(fileSystemService.searchFiles(new File(requestDTO.getUrl()), requestDTO.getFormats())).thenReturn(files);
