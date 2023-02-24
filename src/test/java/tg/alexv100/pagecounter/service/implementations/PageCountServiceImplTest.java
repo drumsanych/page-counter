@@ -47,6 +47,7 @@ class PageCountServiceImplTest {
         when(fileParser.getPagesCount(file)).thenReturn(50L);
         List<File> files = new ArrayList<>();
         files.add(file);
+
         when(fileSystemService.searchFiles(new File(requestDTO.getUrl()), requestDTO.getFormats())).thenReturn(files);
 
         DocumentsAndPagesCountDTO documentsAndPagesCountDTO = pageCountService.searchDocuments(requestDTO);
